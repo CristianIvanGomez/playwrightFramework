@@ -1,0 +1,7 @@
+ loginPage:
+    usernameField: "input[id='username']";
+    passwordField: "#password";
+    submitButton: "//input[@type='submit']";
+    alertMessage: "//div[contains(@class,'aler')]";
+    usernameField: "input[id='username']";
+    
