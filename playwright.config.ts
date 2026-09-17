@@ -30,11 +30,12 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 
-     launchOptions: {
-      args: ['--start-maximized'],
-    },
     trace: 'on-first-retry',
-    headless: false,
+    headless: !!process.env.CI,
+    viewport: process.env.CI ? { width: 1920, height: 1080 } : null,
+    launchOptions: {
+      args: process.env.CI ? [] : ['--start-maximized'],
+    },
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
    
