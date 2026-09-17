@@ -16,7 +16,7 @@ test.beforeAll('Login', async ({ }) => {
     response = await apiUtils.createOrder(orderPayload);
 });
 
-test.only('Create order API and validate in UI', async ({ browser }) => {
+test('Create order API and validate in UI', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     

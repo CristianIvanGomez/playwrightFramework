@@ -1,6 +1,6 @@
 import { test, expect } from '../../fixtures/pageFixtures';
 
-test.only('Get products from Rahul Shetty Academy client webpage', async ({ browser, loginPage }) => {
+test('Get products from Rahul Shetty Academy client webpage', async ({ browser, loginPage }) => {
      //const context = await browser.newContext();
      //const page = await context.newPage();
     // const emailLocator =  page.locator("input[id='userEmail']");
