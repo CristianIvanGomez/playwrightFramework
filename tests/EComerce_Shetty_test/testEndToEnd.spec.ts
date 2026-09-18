@@ -5,7 +5,7 @@ import { CheckOutProductsPage } from '../../pages/Rahul Page/thankYouForOrderPag
 import { MyOrdersPage } from '../../pages/Rahul Page/myOrdersDashboardPage';
 import { Ejercicios } from '../../pages/Rahul Page/Ejercicios';
 
-test.only('Correct signin raulshetty e-commerce', async ({ browser }) => {
+test('Correct signin raulshetty e-commerce', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const registerHereLocator =  page.locator("//a[contains(text(),'Register here')]");
@@ -89,7 +89,7 @@ test('Add to the cart various products', async ({ browser }) => {
     await page.screenshot({ path: 'pagina.png' });
 } );
 
-test.only('buy now product', async ({ browser }) => {
+test('buy now product', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const emailLocator =  page.locator("input[id='userEmail']");
@@ -251,4 +251,4 @@ test.only('buy now product', async ({ browser }) => {
         
     });
 
-    
+    //button[contains(text(),'Add To Cart')]
