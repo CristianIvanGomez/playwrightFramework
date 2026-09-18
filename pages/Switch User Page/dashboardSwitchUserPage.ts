@@ -9,8 +9,8 @@ export class DashboardSwitchUserPage {
 
     constructor(Cartpage: Page) {
         this.page = Cartpage;
-        this.checkMeOutLoveIceCreamCheckBox = Cartpage.getByLabel("Check me out if you Love IceCreams!"); // tu selector real
-        this.studenRadioCheck = Cartpage.getByLabel("Student"); // tu selector real
+        this.checkMeOutLoveIceCreamCheckBox = Cartpage.getByLabel("Check me out if you Love IceCreams!"); 
+        this.studenRadioCheck = Cartpage.getByLabel("Student");
     }
 
      async navigateToAtuoamtionPracticeAndNavigateBack(): Promise <void>{

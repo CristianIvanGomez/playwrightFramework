@@ -10,9 +10,9 @@ export class HeaderOptions {
 
     constructor(page: Page) {
     this.page = page;
-    this.adminButtonLocator = page.getByRole("button", {name:'Admin'})//locator("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.adminOptionListLocator = page.getByRole("link", {name:'Manage Events'}).nth(0); // tu selector real
-    this.eventsLocator = page.locator('[data-testid="nav-events"]'); // tu selector real
+    this.adminButtonLocator = page.getByRole("button", {name:'Admin'})
+    this.adminOptionListLocator = page.getByRole("link", {name:'Manage Events'}).nth(0); 
+    this.eventsLocator = page.locator('[data-testid="nav-events"]'); 
     this.myBookingsLocator = page.getByRole("link", {name:'My Bookings'}).nth(0);
   }
 

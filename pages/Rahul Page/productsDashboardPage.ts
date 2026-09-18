@@ -11,9 +11,9 @@ export class ProductsPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.addToCartButtonLocator = page.locator("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.addToCartToastMessageLocator = page.locator("//*[@id='toast-container']//div[contains(text(),' Product Added To Cart')]"); // tu selector real
-    this.checkOutLocator = page.getByRole("button", {name:"checkout"});//page.locator("//button[contains(text(), 'Checkout')]"); // tu selector real
+    this.addToCartButtonLocator = page.locator("//button[contains(text(),'Add To Cart')]"); 
+    this.addToCartToastMessageLocator = page.locator("//*[@id='toast-container']//div[contains(text(),' Product Added To Cart')]"); 
+    this.checkOutLocator = page.getByRole("button", {name:"checkout"});
     this.cardProductLocator = page.locator(".card-body")
     this.getAddToCartButtonsCount = page.getByRole("listitem").getByRole('button', {name:"Cart"})
   }

@@ -10,10 +10,10 @@ export class EventsPage {
 
     constructor(page: Page) {
     this.page = page;
-    this.headerLocator = page.getByText("Upcoming Events");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.eventCardLocator = page.locator("[data-testid='event-card']"); // tu selector real
-    this.seatsCounterAvailableLocator = page.locator("span[class*='font-semibold text-emerald-600']"); // tu selector real
-    this.bookingButtonLocator = page.locator("[data-testid='book-now-btn']"); // tu selector real
+    this.headerLocator = page.getByText("Upcoming Events");
+    this.eventCardLocator = page.locator("[data-testid='event-card']");
+    this.seatsCounterAvailableLocator = page.locator("span[class*='font-semibold text-emerald-600']"); 
+    this.bookingButtonLocator = page.locator("[data-testid='book-now-btn']"); 
   }
 
    async validateEventsPage(): Promise<void> {
@@ -31,7 +31,6 @@ export class EventsPage {
     const seatsBeforeReduction = await this.seatsCounterAvailableLocator.textContent() ?? '';
     console.log("Seats available before booking: " + seatsBeforeReduction);
     return parseInt(seatsBeforeReduction || '0');
-//const seatsText = await this.eventCardLocator.filter({hasText:"AnitaAckEvent1"}).locator('span').filter({hasText:/ seats available:/}).textContent();
   }
 
   async seatsAfterBooking(seatsBeforeReduction: number): Promise<void> {

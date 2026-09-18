@@ -21,15 +21,15 @@ export class AngularDashboard {
 
     constructor(Cartpage: Page) {
         this.page = Cartpage;
-        this.checkMeOutLoveIceCreamCheckBox = Cartpage.getByLabel("Check me out if you Love IceCreams!"); // tu selector real
-        this.studenRadioCheck = Cartpage.getByLabel("Student"); // tu selector real
-        this.employedRadioCheck = Cartpage.getByLabel("Employed"); // tu selector real
-        this.nameTextInput = Cartpage.getByLabel("Name"); // tu selector real
-        this.emailTextInput = Cartpage.locator("//input[@name='email']"); // tu selector real
-        this.passwordTextInput = Cartpage.getByLabel("Password"); // tu selector real
-        this.genderSelect = Cartpage.getByLabel("Employed"); // tu selector real
-        this.dateOfBirthDate = Cartpage.getByLabel("Employed"); // tu selector real
-        this.twoWayDataInput = Cartpage.getByPlaceholder("Employed"); // tu selector real
+        this.checkMeOutLoveIceCreamCheckBox = Cartpage.getByLabel("Check me out if you Love IceCreams!"); 
+        this.studenRadioCheck = Cartpage.getByLabel("Student"); 
+        this.employedRadioCheck = Cartpage.getByLabel("Employed"); 
+        this.nameTextInput = Cartpage.getByLabel("Name"); 
+        this.emailTextInput = Cartpage.locator("//input[@name='email']"); 
+        this.passwordTextInput = Cartpage.getByLabel("Password"); 
+        this.genderSelect = Cartpage.getByLabel("Employed"); 
+        this.dateOfBirthDate = Cartpage.getByLabel("Employed"); 
+        this.twoWayDataInput = Cartpage.getByPlaceholder("Employed"); 
         this.submitButton = Cartpage.getByRole("button", {name: "Submit"});
         this.successLabelToast = Cartpage.locator("//div[@class='container']//child::div[@class='alert alert-success alert-dismissible']");
         this.shopLink = Cartpage.getByRole("link", {name : "Shop"});
@@ -53,7 +53,7 @@ export class AngularDashboard {
 
     async validateSuccessToastMessage(message: string): Promise <void>{
         await this.successLabelToast.isVisible();
-        await expect(this.successLabelToast).toBeVisible({timeout: 10_000});//.waitFor({ state: 'visible', timeout: 3000 });
+        await expect(this.successLabelToast).toBeVisible({timeout: 10_000});
         await expect(this.successLabelToast).toContainText(message);
     }
 

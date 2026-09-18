@@ -21,17 +21,17 @@ export class NewEventPage {
     constructor(page: Page) {
     this.page = page;
     this.headerLocator = page.locator("//h2[contains(text(),'+ New Event')]");
-    this.titleLocator = page.getByPlaceholder("Event title");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.descriptionLocator = page.getByPlaceholder("Describe the event…");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.categoryLocator = page.getByRole("combobox", {name:'Category'})//locator("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.cityLocator = page.getByPlaceholder("e.g. Bangalore");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.venueLocator = page.getByPlaceholder("Venue name & address");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.eventDateLocator = page.locator("input[id='event-date-&-time']");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.priceLocator = page.getByPlaceholder("0.00");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.totalSeatsLocator = page.getByPlaceholder("e.g. 500");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.imageUrlLocator = page.getByPlaceholder("https://…");//("//button[contains(text(),'Add To Cart')]"); // tu selector real
-    this.addEventButtonLocator = page.getByRole("button", { name: "+ Add Event" }); // tu selector real
-    this.succesToastMessageLocator = page.locator("//div[contains(@class,'pointer-events-auto')]"); // tu selector real
+    this.titleLocator = page.getByPlaceholder("Event title");
+    this.descriptionLocator = page.getByPlaceholder("Describe the event…");
+    this.categoryLocator = page.getByRole("combobox", {name:'Category'})
+    this.cityLocator = page.getByPlaceholder("e.g. Bangalore");
+    this.venueLocator = page.getByPlaceholder("Venue name & address");
+    this.eventDateLocator = page.locator("input[id='event-date-&-time']");
+    this.priceLocator = page.getByPlaceholder("0.00");
+    this.totalSeatsLocator = page.getByPlaceholder("e.g. 500");
+    this.imageUrlLocator = page.getByPlaceholder("https://…");
+    this.addEventButtonLocator = page.getByRole("button", { name: "+ Add Event" }); 
+    this.succesToastMessageLocator = page.locator("//div[contains(@class,'pointer-events-auto')]"); 
   }
 
    async createNewEvent(): Promise<void> {

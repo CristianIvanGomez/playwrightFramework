@@ -18,18 +18,18 @@ export class BookSeatsPage {
 
     constructor(page: Page) {
     this.page = page;
-    this.bookTicketsFrom = page.locator("div[class='grid grid-cols-1 lg:grid-cols-3 gap-8'] div[class*='lg:sticky']"); // tu selector real
-    this.addTicketsButton = page.getByRole('button', { name: '+' }); // tu selector real
-    this.removeTicketsButton = page.getByRole('button', { name: '-' }); // tu selector real
-    this.fullNameInputLocator = page.getByPlaceholder("Your full name"); // tu selector real
-    this.emailInputLocator = page.getByPlaceholder("you@email.com"); // tu selector real
-    this.phoneInputLocator = page.getByPlaceholder("+91 98765 43210"); // tu selector real
-    this.totalLabelLocator = page.locator("div[class*='bg-indigo-50'] div[class*='flex justify-between'] span"); // tu selector real
-    this.confirmBookingButtonLocator = page.getByRole('button', { name: 'Confirm booking' }); // tu selector real
-    this.generalReferenceBookingLocator = page.locator("div[class*='bg-indigo-50 border']"); // tu selector real
-    this.referenceBookingLocator = page.locator("span[class*='booking-ref']"); // tu selector real
-    this.nameEventLocator = page.locator("h1[class*='text-2xl sm:text']"); // tu selector real
-    this.viewMyBookingsButtonLocator = page.getByRole('button', { name: 'View my bookings' }); // tu selector real
+    this.bookTicketsFrom = page.locator("div[class='grid grid-cols-1 lg:grid-cols-3 gap-8'] div[class*='lg:sticky']"); 
+    this.addTicketsButton = page.getByRole('button', { name: '+' }); 
+    this.removeTicketsButton = page.getByRole('button', { name: '-' }); 
+    this.fullNameInputLocator = page.getByPlaceholder("Your full name"); 
+    this.emailInputLocator = page.getByPlaceholder("you@email.com"); 
+    this.phoneInputLocator = page.getByPlaceholder("+91 98765 43210"); 
+    this.totalLabelLocator = page.locator("div[class*='bg-indigo-50'] div[class*='flex justify-between'] span"); 
+    this.confirmBookingButtonLocator = page.getByRole('button', { name: 'Confirm booking' }); 
+    this.generalReferenceBookingLocator = page.locator("div[class*='bg-indigo-50 border']"); 
+    this.referenceBookingLocator = page.locator("span[class*='booking-ref']");
+    this.nameEventLocator = page.locator("h1[class*='text-2xl sm:text']");
+    this.viewMyBookingsButtonLocator = page.getByRole('button', { name: 'View my bookings' }); 
   }
 
   async fillMandatoryFieldsToBook(): Promise<void> {

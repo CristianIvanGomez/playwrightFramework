@@ -10,10 +10,10 @@ export class CartProductsPage {
 
   constructor(Cartpage: Page) {
     this.page = Cartpage;
-    this.cartProductsLocator = Cartpage.locator("//ul[contains(@class, 'cartWrap')]/li"); // tu selector real
-    this.buyNowProductsLocator = Cartpage.locator("//button[contains(text(), 'Buy Now')]"); // tu selector real
-    this.deleteProductsLocator = Cartpage.locator("//button[contains(@class, 'btn-danger')]"); // tu selector real
-    this.totalProductsLocator = Cartpage.locator("//div[contains(@class, 'prodTotal')]"); // tu selector real
+    this.cartProductsLocator = Cartpage.locator("//ul[contains(@class, 'cartWrap')]/li"); 
+    this.buyNowProductsLocator = Cartpage.locator("//button[contains(text(), 'Buy Now')]"); 
+    this.deleteProductsLocator = Cartpage.locator("//button[contains(@class, 'btn-danger')]"); 
+    this.totalProductsLocator = Cartpage.locator("//div[contains(@class, 'prodTotal')]");
   }
 
   async counterAllProducts(): Promise<void> {

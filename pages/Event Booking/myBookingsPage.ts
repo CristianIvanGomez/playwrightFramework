@@ -7,7 +7,7 @@ export class MyBookingsPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.bookingCardsLocator = page.locator("[data-testid='booking-card']"); // tu selector real
+        this.bookingCardsLocator = page.locator("[data-testid='booking-card']"); 
     }
 
     async validateMyBookingTickets(referenceText: string, nameEvent: string): Promise<void> {

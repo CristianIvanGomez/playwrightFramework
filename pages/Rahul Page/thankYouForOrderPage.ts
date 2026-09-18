@@ -24,17 +24,17 @@ export class CheckOutProductsPage {
 
     constructor(Cartpage: Page) {
     this.page = Cartpage;
-    this.cvvCodeInputLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'CVV Code')]/following-sibling::input"); // tu selector real
-    this.nameOnCardInputLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'Name on Card')]/following-sibling::input"); // tu selector real
-    this.applyCouponInputLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'Apply Coupon')]/following-sibling::input"); // tu selector real
-    this.selectCountryLocator = Cartpage.getByPlaceholder("Select Country");//Cartpage.locator("//input[@placeholder='Select Country']"); // tu selector real
-    this.countryListLocator = Cartpage.locator("//section[@class='ta-results list-group ng-star-inserted']"); // tu selector real
-    this.listItemLocator = Cartpage.locator("//button[contains(@class, 'list-group-item')]"); // tu selector real
+    this.cvvCodeInputLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'CVV Code')]/following-sibling::input"); 
+    this.nameOnCardInputLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'Name on Card')]/following-sibling::input");
+    this.applyCouponInputLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'Apply Coupon')]/following-sibling::input"); 
+    this.selectCountryLocator = Cartpage.getByPlaceholder("Select Country");
+    this.countryListLocator = Cartpage.locator("//section[@class='ta-results list-group ng-star-inserted']"); 
+    this.listItemLocator = Cartpage.locator("//button[contains(@class, 'list-group-item')]"); 
     this.emailLabelLocator = Cartpage.locator(".user__name [type='text']")
     this.nameOnCardLocator = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'Name on Card')]/following-sibling::input")
     this.applyCoupon = Cartpage.locator("//div[@class='title' and contains(normalize-space(text()), 'Apply Coupon')]/following-sibling::input")
     this.applyCouponButtonLocator = Cartpage.locator("//button[@class='btn btn-primary mt-1' and contains(normalize-space(text()), 'Apply Coupon')]")
-    this.placeOrderButtonLocator = Cartpage.getByText("PLACE ORDER");//Cartpage.locator("//a[normalize-space()='Place Order']");
+    this.placeOrderButtonLocator = Cartpage.getByText("PLACE ORDER");
     this.applyCouponConfirmationLocator = Cartpage.locator("//p[@class='mt-1 ng-star-inserted']");
     this.negativeToastMessageLocator = Cartpage.locator("//div[@class='ng-tns-c4-34 toast-title ng-star-inserted']");
     this.positiveToastMessageLocator = Cartpage.locator("//div[contains(@class, 'toast-success')]");

@@ -5,7 +5,7 @@ import { CheckOutProductsPage } from '../../pages/Rahul Page/thankYouForOrderPag
 import { MyOrdersPage } from '../../pages/Rahul Page/myOrdersDashboardPage';
 import { Ejercicios } from '../../pages/Rahul Page/Ejercicios';
 
-test('Correct signin raulshetty e-commerce', async ({ browser }) => {
+test.only('Correct signin raulshetty e-commerce', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const registerHereLocator =  page.locator("//a[contains(text(),'Register here')]");
@@ -16,7 +16,7 @@ test('Correct signin raulshetty e-commerce', async ({ browser }) => {
     const occupationLocator =  page.locator("select[formcontrolname='occupation']");
     const generFemaleLocator =  page.locator("input[value='Female']");
     const generMaleLocator =  page.locator("input[value='Male']");
-    const passwordLocator =  page.getByPlaceholder("enter your passsword");//page.locator("input[id='userPassword']");
+    const passwordLocator =  page.getByPlaceholder("Passsword");//page.locator("input[id='userPassword']");
     const confirmPasswordLocator =  page.locator("input[id='confirmPassword']");
     const olderThan18Locator =  page.locator("[formcontrolname='required']");
     const registerHeadTitleLocator =  page.locator("[class='login-title']");
@@ -89,7 +89,7 @@ test('Add to the cart various products', async ({ browser }) => {
     await page.screenshot({ path: 'pagina.png' });
 } );
 
-test('buy now product', async ({ browser }) => {
+test.only('buy now product', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const emailLocator =  page.locator("input[id='userEmail']");

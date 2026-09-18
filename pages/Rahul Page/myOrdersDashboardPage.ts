@@ -12,8 +12,8 @@ export class MyOrdersPage {
   constructor(Cartpage: Page) {
     this.page = Cartpage;
     this.yourOrdersTableLocator = Cartpage.locator("//table[contains(@class, 'table table-bordered table-hover ng-star-inserted')]"); // tu selector real
-    this.yourOrdersTableHeaderLocator = Cartpage.locator("//thead[contains(@class, 'thead-dark')]"); // tu selector real
-    this.yourOrdersTableBodyLocator = Cartpage.locator("//tbody//tr[@class='ng-star-inserted']"); // tu selector real
+    this.yourOrdersTableHeaderLocator = Cartpage.locator("//thead[contains(@class, 'thead-dark')]"); 
+    this.yourOrdersTableBodyLocator = Cartpage.locator("//tbody//tr[@class='ng-star-inserted']"); 
     this.loadingPage = Cartpage.locator("//div[@class='mt-4 ng-star-inserted' and contains(normalize-space(text()), 'Loading....')]"); // tu selector real
   }
 
