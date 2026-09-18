@@ -4,6 +4,7 @@ import { ProductsPage } from '../../pages/Rahul Page/productsDashboardPage';
 import { CheckOutProductsPage } from '../../pages/Rahul Page/thankYouForOrderPage';
 import { MyOrdersPage } from '../../pages/Rahul Page/myOrdersDashboardPage';
 import { Ejercicios } from '../../pages/Rahul Page/Ejercicios';
+import { generateRandomEmail } from '../../helpers/emailGenerator';
 
 test('Correct signin raulshetty e-commerce', async ({ browser }) => {
     const context = await browser.newContext();
@@ -15,9 +16,8 @@ test('Correct signin raulshetty e-commerce', async ({ browser }) => {
     const phoneNumberLocator =  page.locator("input[id='userMobile']");
     const occupationLocator =  page.locator("select[formcontrolname='occupation']");
     const generFemaleLocator =  page.locator("input[value='Female']");
-    const generMaleLocator =  page.locator("input[value='Male']");
-    const passwordLocator =  page.getByPlaceholder("Passsword");//page.locator("input[id='userPassword']");
-    const confirmPasswordLocator =  page.locator("input[id='confirmPassword']");
+    const passwordLocator =  page.locator("input[id='userPassword']");//page.locator("input[id='userPassword']");
+    const confirmPasswordLocator =  page.locator("input[formcontrolname='confirmPassword']");
     const olderThan18Locator =  page.locator("[formcontrolname='required']");
     const registerHeadTitleLocator =  page.locator("[class='login-title']");
     const submitButtonLocator =  page.locator("//input[@type='submit']");
@@ -30,10 +30,12 @@ test('Correct signin raulshetty e-commerce', async ({ browser }) => {
     await expect(registerHeadTitleLocator).toHaveText("Register");
     await firstNameLocator.fill('cristian');
     await lastNameLocator.fill('Martyn2');
-    await emailLocator.fill('anaack26@gmail.com.com');
+    const email = generateRandomEmail();
+    await emailLocator.fill(email);
     await phoneNumberLocator.fill('1234567890');
     await occupationLocator.selectOption('Engineer');
     await generFemaleLocator.click();
+    await passwordLocator.waitFor({ state: 'visible' });
     await passwordLocator.fill('AnaAck@2');
     await confirmPasswordLocator.fill('AnaAck@2');
     await olderThan18Locator.click();
@@ -109,12 +111,12 @@ test('buy now product', async ({ browser }) => {
     await expect(addToCartButtonLocator.first()).toBeVisible();
     const productsPage = new ProductsPage(page);
     await productsPage.addAllProductsToCart();
-    await productsPage.clickCheckOutButton();
+    await productsPage.clickMyCarttButton();
     await page.waitForLoadState('networkidle');
     const cartProductsPage = new CartProductsPage(page);
     await cartProductsPage.buyNowProduct(1);
     await page.waitForLoadState('networkidle');
-    await expect(buyNowProductDetailsTextLocator).toHaveText(" ADIDAS ORIGINAL ");
+    await expect(buyNowProductDetailsTextLocator).toHaveText(" ZARA COAT 3 ");
     await page.screenshot({ path: 'pagina.png' });
     } );
 
@@ -148,8 +150,6 @@ test('buy now product', async ({ browser }) => {
     await checkOutProductsPage.completeOrderPurchase();
     await page.screenshot({ path: 'pagina.png' });
     } );
-
-    
 
     test('Validate product list', async ({browser}) =>{
     const context = await browser.newContext();
