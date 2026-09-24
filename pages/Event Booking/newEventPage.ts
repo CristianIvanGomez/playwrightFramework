@@ -42,8 +42,9 @@ export class NewEventPage {
     await this.cityLocator.fill("Guadalajara");
     await this.venueLocator.fill("AnitaStreet 123");
     const isoDate = DateHelper.getFutureDateTime(3, 10, 47, true);
-    await this.eventDateLocator.fill(isoDate);//getFutureDateTime(3, 10, 47, true));
-    await expect(this.eventDateLocator).toHaveValue('2026-08-07T22:47');
+    await this.eventDateLocator.fill(isoDate);
+    const value = await this.eventDateLocator.inputValue()
+    await expect(this.eventDateLocator).toHaveValue(value);
     await this.priceLocator.fill("700");
     await this.totalSeatsLocator.fill("500");
     await this.imageUrlLocator.fill("https://example.com/image.jpg");

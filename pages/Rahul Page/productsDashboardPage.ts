@@ -28,12 +28,6 @@ export class ProductsPage {
 
      const getAddToCartCount = await this.getAddToCartButtonsCount.textContent() ?? '';
         console.log("Total 'Add To Cart' buttons found: " + getAddToCartCount);
-    //const total = await this.addToCartButtonLocator.count();
-    // for (let i = 0; i < total; i++) {
-    //   await this.addToCartButtonLocator.nth(i).click();
-    //   await expect(this.addToCartToastMessageLocator).toBeVisible();
-    //   await this.addToCartToastMessageLocator.waitFor({ state: 'hidden' });
-    // }
   }
 
   async clickMyCarttButton(): Promise<void> {

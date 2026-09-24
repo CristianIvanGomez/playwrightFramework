@@ -5,6 +5,8 @@ on:
   pull_request:
     branches: [main, master]
   workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * 1-5'
 
 jobs:
   test:
@@ -58,3 +60,14 @@ jobs:
           name: html-report--attempt-${{ github.run_attempt }}
           path: playwright-report
           retention-days: 14
+
+          notify-failure:
+    if: ${{ failure() && github.event_name == 'schedule' }}
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"Falló la regresión nocturna: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}

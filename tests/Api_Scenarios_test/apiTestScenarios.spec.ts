@@ -38,7 +38,6 @@ test('Create order API and validate in UI', async ({ browser }) => {
         }
     }
     const orderIdDetails = await page.locator('.col-text').textContent();
-    await page.pause();
     expect(orderIdDetails?.includes(response.orderId)).toBe(true);
     await page.screenshot({ path: 'pagina.png' });
 } );

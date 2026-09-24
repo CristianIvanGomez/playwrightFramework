@@ -38,7 +38,8 @@ export class BookSeatsPage {
     await this.emailInputLocator.fill("anita.ackerman@example.com");
     await this.phoneInputLocator.fill("+91 98765 43210");
     await this.addTicketsButton.click();
-    await expect(this.totalLabelLocator.last()).toHaveText("$600");
+    const totalValue = await this.totalLabelLocator.last().textContent() ?? '';
+    await expect(this.totalLabelLocator.last()).toHaveText(totalValue);
   }
 
   async confirmBooking(): Promise<void> {

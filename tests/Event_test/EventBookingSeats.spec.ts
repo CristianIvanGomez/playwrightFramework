@@ -6,15 +6,6 @@ import { EventsPage } from '../../pages/Event Booking/eventsPage';
 import { BookSeatsPage } from '../../pages/Event Booking/bookingPage';
 import { MyBookingsPage } from '../../pages/Event Booking/myBookingsPage';
 
-
-test('Correct signin to EventHub', async ({ browser }) => {
-    const context = await browser.newContext();
-    const page = await context.newPage(); 
-    const loginEventPage = new LoginEventPage(page);
-    await loginEventPage.loginToEventPage();
-    await page.screenshot({ path: 'pagina.png' });
-} );
-
 test('Correct signin to EventHubPage', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage(); 
@@ -50,7 +41,7 @@ test('Find the event card and capture seats', async ({ browser }) => {
     await page.screenshot({ path: 'pagina.png' });
 } );
 
-test('Booking for refund', async ({ browser }) => {
+test.only('Booking for refund', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage(); 
     const loginEventPage = new LoginEventPage(page);

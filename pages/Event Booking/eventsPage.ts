@@ -11,13 +11,13 @@ export class EventsPage {
     constructor(page: Page) {
     this.page = page;
     this.headerLocator = page.getByText("Upcoming Events");
-    this.eventCardLocator = page.locator("[data-testid='event-card']");
-    this.seatsCounterAvailableLocator = page.locator("span[class*='font-semibold text-emerald-600']"); 
+    this.eventCardLocator = page.getByTestId('event-card');
+    this.seatsCounterAvailableLocator = page.locator("span[id*='ticket-count']"); 
     this.bookingButtonLocator = page.locator("[data-testid='book-now-btn']"); 
   }
 
    async validateEventsPage(): Promise<void> {
-    await this.page.goto('https://eventhub.rahulshettyacademy.com/');
+    //await this.page.goto('https://eventhub.rahulshettyacademy.com/');
     await expect(this.page).toHaveTitle("EventHub — Discover & Book Events");
     await expect(this.headerLocator).toBeVisible();
     await this.eventCardLocator.filter({hasText:"AnitaAckEvent1"})
@@ -28,13 +28,14 @@ export class EventsPage {
   }
 
   async seatsBeforeBooking(): Promise<number> {
-    const seatsBeforeReduction = await this.seatsCounterAvailableLocator.textContent() ?? '';
+    const seatsBeforeReduction = await this.eventCardLocator.filter({ has: this.page.getByRole('heading', { name: 'AnitaAckEvent1', exact: true }) }).locator('span.text-emerald-600').textContent() ?? '';
     console.log("Seats available before booking: " + seatsBeforeReduction);
     return parseInt(seatsBeforeReduction || '0');
   }
 
   async seatsAfterBooking(seatsBeforeReduction: number): Promise<void> {
-    const seatsAfterReduction = await this.seatsCounterAvailableLocator.textContent() ?? '';
+    await this.page.waitForSelector("[data-testid='event-card']", { state: 'visible', timeout: 5000 });
+    const seatsAfterReduction = await this.eventCardLocator.filter({ has: this.page.getByRole('heading', { name: 'AnitaAckEvent1', exact: true }) }).locator('span.text-emerald-600').textContent() ?? '';
     await expect(seatsBeforeReduction).toBeGreaterThan(parseInt(seatsAfterReduction || '0'));
     console.log("Seats available before booking: " + seatsBeforeReduction + "Seats available after booking: " + seatsAfterReduction);
   }

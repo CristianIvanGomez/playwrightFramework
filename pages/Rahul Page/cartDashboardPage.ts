@@ -36,7 +36,7 @@ export class CartProductsPage {
   async buyNowProduct(productIndex: number): Promise<void> {
     await expect(this.buyNowProductsLocator.nth(productIndex)).toBeVisible();
     await expect(this.page.getByText("ZARA COAT 3")).toBeVisible();
-    await expect(this.page.getByRole("button",{name:"Checkout"})).toBeVisible();
+    await expect(this.page.getByRole("button",{name:"Buy Now"})).toBeVisible();
     const total = await this.buyNowProductsLocator.count();
     for (let i = 0; i < total; i++) {
       productIndex = productIndex - 1; // Adjust for zero-based index
