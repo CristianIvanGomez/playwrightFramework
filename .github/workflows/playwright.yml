@@ -4,9 +4,19 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  workflow_dispatch:
   schedule:
     - cron: '17 8 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: 'Tag o texto a filtrar (ej. @regression, @smoke). Vacío = todos'
+        required: false
+        default: '@regression'
+      project:
+        description: 'Navegador'
+        type: choice
+        options: [all, chromium, firefox, webkit]
+        default: all
 
 jobs:
   test:
@@ -27,7 +37,14 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        env:
+          GREP: ${{ inputs.grep || '@regression'}}
+          PROJECT: ${{ inputs.project }}
+        run: |
+          ARGS="--shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}"
+          if [ -n "$GREP" ]; then ARGS="$ARGS --grep $GREP"; fi
+          if [ -n "$PROJECT" ] && [ "$PROJECT" != "all" ]; then ARGS="$ARGS --project=$PROJECT"; fi
+          npx playwright test $ARGS
       - name: Upload blob report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
