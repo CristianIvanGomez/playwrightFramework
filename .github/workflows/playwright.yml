@@ -61,7 +61,7 @@ jobs:
           path: playwright-report
           retention-days: 14
 
-          notify-failure:
+  notify-failure:
     if: ${{ failure() && github.event_name == 'schedule' }}
     needs: [test]
     runs-on: ubuntu-latest
