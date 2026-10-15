@@ -50,8 +50,9 @@ test.only('Booking for refund', async ({ browser }) => {
     await headerOptions.navigateToEvents();
     const eventsPage = new EventsPage(page);
     await eventsPage.validateEventsPage();
-    await eventsPage.bookNow('AnitaAckEvent1');
     const seatsBeforeReduction = await eventsPage.seatsBeforeBooking();
+    await eventsPage.bookNow('AnitaAckEvent1');
+    
     const bookSeatsPage = new BookSeatsPage(page);
     await bookSeatsPage.fillMandatoryFieldsToBook();
     await bookSeatsPage.confirmBooking();
